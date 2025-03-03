@@ -1,0 +1,35 @@
+name: mask
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_animate: any
+  path_provider: any 
+  device_apps: ^2.2.0
+  shared_preferences: ^2.2.2
+  # shared_preferences: any
+  # geolocator: ^11.1.0   # Remover/Comentar
+  # camera: ^0.10.5+9     # Remover/Comentar
+  #
+  # flutter_sound: ^9.2.13 # Remover/Comentar
+  # permission_handler: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/  # ✅ Agora está corretamente indentado
