@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import '../../../widgets/number_pad.dart';
-import '../../../widgets/password_indicator.dart';
+import '../widgets/number_pad.dart';
+import '../widgets/password_indicator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/services.dart'; // 📌 Para fechar o app corretamente

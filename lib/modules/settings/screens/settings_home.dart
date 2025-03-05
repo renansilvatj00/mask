@@ -134,12 +134,13 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               ],
             ),
           ),
-          _buildDrawerItem(Icons.people, "Minha Rede Segura", "/minha_rede"),
-          _buildDrawerItem(Icons.lock, "Meu App", "/meu_app"),
-          _buildDrawerItem(Icons.card_membership, "Meu Plano", "/meu_plano"),
-          _buildDrawerItem(Icons.person, "Meus Dados Pessoais", "/meus_dados"),
-          _buildDrawerItem(Icons.info, "Dicas ao Usuário", "/dicas"),
-          _buildDrawerItem(Icons.support, "Suporte", "/suporte"),
+          _buildDrawerItem(Icons.people, "Minha Rede Segura", "/my-network"),
+          _buildDrawerItem(Icons.warning, "Últimos Alertas", "/last-alerts"),
+          _buildDrawerItem(Icons.lock, "Meu App", "/my-app"),
+          _buildDrawerItem(Icons.card_membership, "Meu Plano", "/my-plan"),
+          _buildDrawerItem(Icons.person, "Meus Dados Pessoais", "/my-data"),
+          _buildDrawerItem(Icons.info, "Dicas ao Usuário", "/tips"),
+          _buildDrawerItem(Icons.support, "Suporte", "/support"),
           Divider(),
           ListTile(
             leading: Icon(Icons.exit_to_app, color: Colors.redAccent),
@@ -178,24 +179,27 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         children: [
           Text("Dashboard", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
           SizedBox(height: 20),
-          _buildCard("🔔 Últimos Alertas", "Nenhum alerta recente"),
-          _buildCard("💬 Chats Recentes", "Nenhuma conversa ativa"),
-          _buildCard("📜 Plano Atual", "Plano Free (2 contatos)"),
+          _buildCard("🔔 Últimos Alertas", "Nenhum alerta recente", Icons.warning, "/last-alerts"),
+          _buildCard("💬 Últimos Eventos", "Nenhuma conversa ativa", Icons.chat, "/select-panic-user"),
+          _buildCard("📜 Plano Atual", "Plano Free (2 contatos)", Icons.card_membership, "/my-plan"),
         ],
       ),
     );
   }
 
   // 🔹 Cartão da dashboard
-  Widget _buildCard(String title, String subtitle) {
+  Widget _buildCard(String title, String subtitle, IconData icon, String route) {
     return Card(
       margin: EdgeInsets.symmetric(vertical: 10),
       elevation: 3,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: ListTile(
+        leading: Icon(icon, color: Colors.blueAccent),
         title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(subtitle),
-        leading: Icon(Icons.info_outline, color: Colors.blueAccent),
+        onTap: () {
+          Navigator.pushNamed(context, route);
+        },
       ),
     );
   }
